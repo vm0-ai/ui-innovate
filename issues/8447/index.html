@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue #8447 — Connectors Page List Layout</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; }
+    .header { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 24px 32px; }
+    .header h1 { font-size: 20px; font-weight: 600; }
+    .header p { color: #666; margin-top: 8px; font-size: 14px; line-height: 1.5; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); gap: 24px; padding: 24px 32px; }
+    .card { background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; overflow: hidden; }
+    .card-header { padding: 16px 20px; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center; }
+    .card-header h2 { font-size: 16px; font-weight: 600; }
+    .badge { font-size: 12px; padding: 2px 8px; border-radius: 12px; font-weight: 500; }
+    .badge-baseline { background: #e8e8e8; color: #666; }
+    .badge-a { background: #dbeafe; color: #1d4ed8; }
+    .badge-b { background: #dcfce7; color: #16a34a; }
+    .badge-c { background: #fef3c7; color: #d97706; }
+    .card-desc { padding: 12px 20px; font-size: 13px; color: #666; border-bottom: 1px solid #f0f0f0; line-height: 1.5; }
+    iframe { width: 100%; height: 600px; border: none; }
+    .links { padding: 12px 20px; border-top: 1px solid #e0e0e0; }
+    .links a { font-size: 13px; color: #2563eb; text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Issue #8447 — Connectors Page: Card Grid to List Layout</h1>
+    <p>Redesign the Connectors page to use a list/stream layout instead of the current 3-column card grid. Improves scannability, information density, and aligns with common settings page patterns.</p>
+  </div>
+  <div class="grid">
+    <!-- Baseline -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Baseline — Current Card Grid</h2>
+        <span class="badge badge-baseline">Current</span>
+      </div>
+      <div class="card-desc">The existing 3-column responsive card grid layout. Each connector is a card with icon, name, description, and connect button.</div>
+      <iframe src="baseline/connectors-grid-view.html"></iframe>
+      <div class="links"><a href="baseline/connectors-grid-view.html" target="_blank">Open standalone &rarr;</a></div>
+    </div>
+
+    <!-- Variant A -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Variant A — Simple Flat List</h2>
+        <span class="badge badge-a">Minimal</span>
+      </div>
+      <div class="card-desc">Simplest change: flatten the grid into a single-column list inside one card container. Each row shows icon, name, description (on desktop), and connect button inline. No grouping or hierarchy.</div>
+      <iframe src="variant-a/connectors-list-view.html"></iframe>
+      <div class="links"><a href="variant-a/connectors-list-view.html" target="_blank">Open standalone &rarr;</a></div>
+    </div>
+
+    <!-- Variant B -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Variant B — Alphabetical Groups</h2>
+        <span class="badge badge-b">Balanced</span>
+      </div>
+      <div class="card-desc">Groups connectors by first letter with sticky section headers. Each row shows icon, name, and description in a two-line layout. Connect button appears on hover. Scrollable container with 600px max height.</div>
+      <iframe src="variant-b/connectors-list-view.html"></iframe>
+      <div class="links"><a href="variant-b/connectors-list-view.html" target="_blank">Open standalone &rarr;</a></div>
+    </div>
+
+    <!-- Variant C -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Variant C — Compact Two-Column</h2>
+        <span class="badge badge-c">Ambitious</span>
+      </div>
+      <div class="card-desc">Most dense layout: two columns on desktop with compact rows showing icon + name. Bordered icon container adds visual weight. Hover reveals a filled "Add" button. Maximizes visible connectors per viewport.</div>
+      <iframe src="variant-c/connectors-list-view.html"></iframe>
+      <div class="links"><a href="variant-c/connectors-list-view.html" target="_blank">Open standalone &rarr;</a></div>
+    </div>
+  </div>
+</body>
+</html>
